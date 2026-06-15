@@ -49,4 +49,24 @@ class ProfileController extends Controller
 
         return response()->json(['message' => 'تم تغيير كلمة المرور بنجاح']);
     }
+
+    /**
+     * Permanently delete the authenticated user's account and all related
+     * data (bookings, support tickets cascade via foreign keys).
+     */
+    public function destroy()
+    {
+        $user = auth('api')->user();
+
+        // Invalidate the current token, then delete the account.
+        try {
+            auth('api')->logout();
+        } catch (\Throwable $e) {
+            // ignore token errors during deletion
+        }
+
+        $user->delete();
+
+        return response()->json(['message' => 'تم حذف الحساب نهائيًا']);
+    }
 }

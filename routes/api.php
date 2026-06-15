@@ -38,6 +38,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/',               [ProfileController::class, 'show']);
         Route::put('/',               [ProfileController::class, 'update']);
         Route::put('change-password', [ProfileController::class, 'changePassword']);
+        Route::delete('/',            [ProfileController::class, 'destroy']);
     });
 
     Route::prefix('bookings')->group(function () {

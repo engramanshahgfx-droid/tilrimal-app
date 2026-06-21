@@ -7,6 +7,9 @@ use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\OfferController;
 use App\Http\Controllers\Api\SupportController;
 use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\FlightController;
+use App\Http\Controllers\Api\HotelController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -25,6 +28,15 @@ Route::get('packages/{package}', [PackageController::class, 'show']);
 
 Route::get('offers',             [OfferController::class, 'index']);
 Route::get('offers/{offer}',     [OfferController::class, 'show']);
+
+Route::get('flights',            [FlightController::class, 'index']);
+Route::get('flights/{flight}',   [FlightController::class, 'show']);
+
+Route::get('hotels',             [HotelController::class, 'index']);
+Route::get('hotels/{hotel}',     [HotelController::class, 'show']);
+
+// Payment (publishable key + mode) - public
+Route::get('payment/config',     [PaymentController::class, 'config']);
 
 // Protected routes
 Route::middleware('auth:api')->group(function () {
@@ -54,4 +66,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/',                      [SupportController::class, 'store']);
         Route::get('/{supportTicket}',        [SupportController::class, 'show']);
     });
+
+    // Verify a Moyasar payment then create the booking
+    Route::post('payment/verify', [PaymentController::class, 'verify']);
 });

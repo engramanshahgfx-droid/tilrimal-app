@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Activity;
+use App\Models\Flight;
+use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\FlightBooking;
 use App\Models\Offer;
@@ -143,6 +145,29 @@ class DatabaseSeeder extends Seeder
 
         foreach ($offers as $offer) {
             Offer::firstOrCreate(['title' => $offer['title']], $offer);
+        }
+
+        // Sample Flights
+        $flights = [
+            ['airline' => 'الخطوط الجوية السعودية', 'departure_airport' => 'جدة (JED)', 'arrival_airport' => 'الرياض (RUH)', 'departure_time' => '10:00', 'arrival_time' => '12:00', 'departure_date' => now()->addDays(15)->toDateString(), 'duration' => 'ساعتان', 'stops' => 0, 'price' => 4709, 'sort_order' => 1],
+            ['airline' => 'طيران ناس', 'departure_airport' => 'جدة (JED)', 'arrival_airport' => 'الدمام (DMM)', 'departure_time' => '14:30', 'arrival_time' => '16:15', 'departure_date' => now()->addDays(16)->toDateString(), 'duration' => 'ساعة و45 د', 'stops' => 0, 'price' => 5029, 'sort_order' => 2],
+            ['airline' => 'طيران أديل', 'departure_airport' => 'الرياض (RUH)', 'arrival_airport' => 'أبها (AHB)', 'departure_time' => '09:00', 'arrival_time' => '10:30', 'departure_date' => now()->addDays(18)->toDateString(), 'duration' => 'ساعة و30 د', 'stops' => 0, 'price' => 5349, 'sort_order' => 3],
+            ['airline' => 'الخطوط الجوية السعودية', 'departure_airport' => 'جدة (JED)', 'arrival_airport' => 'المدينة (MED)', 'departure_time' => '18:00', 'arrival_time' => '19:00', 'departure_date' => now()->addDays(20)->toDateString(), 'duration' => 'ساعة', 'stops' => 0, 'price' => 5669, 'sort_order' => 4],
+        ];
+        foreach ($flights as $f) {
+            Flight::firstOrCreate(['airline' => $f['airline'], 'departure_time' => $f['departure_time'], 'arrival_airport' => $f['arrival_airport']], $f);
+        }
+
+        // Sample Hotels
+        $hotels = [
+            ['name' => 'فندق الريتز كارلتون', 'city' => 'الرياض', 'description' => 'فخامة وخدمة عالمية في قلب الرياض', 'price' => 950, 'rating' => 5, 'sort_order' => 1],
+            ['name' => 'منتجع البحر الأحمر', 'city' => 'جدة', 'description' => 'إطلالات بحرية ساحرة وشاطئ خاص', 'price' => 800, 'rating' => 5, 'sort_order' => 2],
+            ['name' => 'فندق نسمة الطائف', 'city' => 'الطائف', 'description' => 'أجواء جبلية هادئة ومنعشة', 'price' => 650, 'rating' => 4, 'sort_order' => 3],
+            ['name' => 'فندق العُلا التراثي', 'city' => 'العُلا', 'description' => 'تجربة إقامة وسط الطبيعة والآثار', 'price' => 1100, 'rating' => 5, 'sort_order' => 4],
+            ['name' => 'منتجع نيوم', 'city' => 'نيوم', 'description' => 'إقامة عصرية في مدينة المستقبل', 'price' => 1500, 'rating' => 5, 'sort_order' => 5],
+        ];
+        foreach ($hotels as $h) {
+            Hotel::firstOrCreate(['name' => $h['name']], $h);
         }
     }
 }

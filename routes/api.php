@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\FlightController;
 use App\Http\Controllers\Api\HotelController;
+use App\Http\Controllers\Api\SettingController;
+use App\Http\Controllers\Api\SearchController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -34,6 +36,12 @@ Route::get('flights/{flight}',   [FlightController::class, 'show']);
 
 Route::get('hotels',             [HotelController::class, 'index']);
 Route::get('hotels/{hotel}',     [HotelController::class, 'show']);
+
+// App settings (currency, contact, …) - public
+Route::get('settings',           [SettingController::class, 'index']);
+
+// Log a flight/hotel/trip search from the app - public (user attached if logged in)
+Route::post('searches',          [SearchController::class, 'store']);
 
 // Payment (publishable key + mode) - public
 Route::get('payment/config',     [PaymentController::class, 'config']);

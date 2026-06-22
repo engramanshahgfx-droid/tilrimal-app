@@ -12,6 +12,7 @@ use App\Models\Package;
 use App\Models\PackageActivity;
 use App\Models\PackageCity;
 use App\Models\Passenger;
+use App\Models\Setting;
 use App\Models\SupportTicket;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,16 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Default app settings (editable from the admin panel)
+        Setting::setMany([
+            'app_name'       => 'التلال والرمال للسفر والسياحة',
+            'currency'       => 'SAR',
+            'support_phone'  => '0500000000',
+            'support_email'  => 'support@tilalr.com',
+            'booking_enabled' => '1',
+            'tax_percent'    => '15',
+        ]);
+
         // Admin user (can access the React admin panel)
         User::updateOrCreate(
             ['email' => 'admin@remal.com'],

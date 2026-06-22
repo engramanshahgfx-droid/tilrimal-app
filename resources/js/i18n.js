@@ -11,6 +11,8 @@ const dictionary = {
             offers: 'العروض',
             bookings: 'الحجوزات',
             support_tickets: 'الدعم الفني',
+            searches: 'سجل البحث',
+            settings: 'الإعدادات',
         },
         ui: {
             login: 'تسجيل الدخول',
@@ -59,6 +61,8 @@ const dictionary = {
             offers: 'العروض',
             bookings: 'الحجوزات',
             support_tickets: 'الدعم الفني',
+            searches: 'سجل البحث',
+            settings: 'الإعدادات',
         },
         fields: {
             name: 'الاسم', email: 'البريد الإلكتروني', phone: 'رقم الهاتف', password: 'كلمة المرور',
@@ -71,11 +75,13 @@ const dictionary = {
             discounted_price: 'السعر بعد الخصم', created_at: 'تاريخ الإنشاء', user: 'المستخدم',
             is_current: 'حجز حالي', notes: 'ملاحظات', city: 'المدينة', nights: 'الليالي', activity_name: 'اسم النشاط',
             replied: 'تم الرد',
+            app_name: 'اسم التطبيق', currency: 'العملة', support_phone: 'هاتف الدعم', support_email: 'بريد الدعم',
+            tax_percent: 'نسبة الضريبة %', booking_enabled: 'الحجز مُفعّل', payload: 'بيانات البحث',
         },
         values: {
             male: 'ذكر', female: 'أنثى', local: 'رحلة محلية', international: 'رحلة دولية', flight: 'طيران',
             hotel: 'فندق', package: 'باقة', activity: 'نشاط', pending: 'قيد الانتظار', booked: 'محجوز',
-            cancelled: 'ملغي', open: 'مفتوح', in_progress: 'قيد المعالجة', closed: 'مغلق',
+            cancelled: 'ملغي', open: 'مفتوح', in_progress: 'قيد المعالجة', closed: 'مغلق', trip: 'رحلة مخصصة',
         },
         sections: {
             package_details: 'بيانات الباقة', route_cities: 'مسار الرحلة (المدن)', activities: 'الأنشطة',
@@ -94,6 +100,8 @@ const dictionary = {
             offers: 'Offers',
             bookings: 'Bookings',
             support_tickets: 'Support Tickets',
+            searches: 'Search Log',
+            settings: 'Settings',
         },
         ui: {
             login: 'Sign in',
@@ -142,6 +150,8 @@ const dictionary = {
             offers: 'Offers',
             bookings: 'Bookings',
             support_tickets: 'Support Tickets',
+            searches: 'Search Log',
+            settings: 'Settings',
         },
         fields: {
             name: 'Name', email: 'Email', phone: 'Phone', password: 'Password',
@@ -154,11 +164,13 @@ const dictionary = {
             discounted_price: 'Discounted Price', created_at: 'Created At', user: 'User',
             is_current: 'Is Current', notes: 'Notes', city: 'City', nights: 'Nights', activity_name: 'Activity Name',
             replied: 'Replied',
+            app_name: 'App Name', currency: 'Currency', support_phone: 'Support Phone', support_email: 'Support Email',
+            tax_percent: 'Tax %', booking_enabled: 'Booking Enabled', payload: 'Search Data',
         },
         values: {
             male: 'Male', female: 'Female', local: 'Local Trip', international: 'International Trip', flight: 'Flight',
             hotel: 'Hotel', package: 'Package', activity: 'Activity', pending: 'Pending', booked: 'Booked',
-            cancelled: 'Cancelled', open: 'Open', in_progress: 'In Progress', closed: 'Closed',
+            cancelled: 'Cancelled', open: 'Open', in_progress: 'In Progress', closed: 'Closed', trip: 'Custom Trip',
         },
         sections: {
             package_details: 'Package Details', route_cities: 'Route (Cities)', activities: 'Activities',

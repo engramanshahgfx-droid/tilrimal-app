@@ -11,6 +11,8 @@ const navItems = [
     { key: 'offers', route: 'admin.offers.index', match: '/admin/offers' },
     { key: 'bookings', route: 'admin.bookings.index', match: '/admin/bookings' },
     { key: 'support_tickets', route: 'admin.support-tickets.index', match: '/admin/support-tickets' },
+    { key: 'searches', route: 'admin.searches.index', match: '/admin/searches' },
+    { key: 'settings', route: 'admin.settings.edit', match: '/admin/settings' },
 ];
 
 function Flash() {

@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\SupportTicketController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/admin');
@@ -52,5 +54,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('support-tickets/{support_ticket}/edit', [SupportTicketController::class, 'edit'])->name('support-tickets.edit');
         Route::put('support-tickets/{support_ticket}', [SupportTicketController::class, 'update'])->name('support-tickets.update');
         Route::delete('support-tickets/{support_ticket}', [SupportTicketController::class, 'destroy'])->name('support-tickets.destroy');
+
+        // Search log (read-only)
+        Route::get('searches', [SearchController::class, 'index'])->name('searches.index');
+
+        // App settings (single edit form)
+        Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
     });
 });

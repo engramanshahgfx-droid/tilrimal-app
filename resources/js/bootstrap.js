@@ -11,3 +11,23 @@ if (csrfToken) {
 	window.Laravel = window.Laravel || {};
 	window.Laravel.csrfToken = csrfToken;
 }
+
+// Ensure native fetch (used by Inertia) sends the CSRF token and cookies
+if (typeof window !== 'undefined' && typeof window.fetch === 'function') {
+	const _fetch = window.fetch.bind(window);
+	window.fetch = (input, init = {}) => {
+		const headers = new Headers(init.headers || {});
+		if (!headers.get('X-Requested-With')) {
+			headers.set('X-Requested-With', 'XMLHttpRequest');
+		}
+		if (csrfToken && !headers.get('X-CSRF-TOKEN')) {
+			headers.set('X-CSRF-TOKEN', csrfToken);
+		}
+		init.headers = headers;
+		// ensure cookies are sent for same-origin requests
+		if (init.credentials === undefined) {
+			init.credentials = 'same-origin';
+		}
+		return _fetch(input, init);
+	};
+}

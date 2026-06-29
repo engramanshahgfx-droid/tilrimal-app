@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Cairo', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Brand palette — gold (#caaa6e). Overrides the `teal-*` utilities used across the UI. */
+    --color-teal-50:  #faf7f0;
+    --color-teal-100: #f3ead7;
+    --color-teal-200: #e8d6b4;
+    --color-teal-300: #dabd8c;
+    --color-teal-400: #d2b079;
+    --color-teal-500: #caaa6e;
+    --color-teal-600: #b6924d;
+    --color-teal-700: #94763d;
+    --color-teal-800: #735c31;
+    --color-teal-900: #5c4a2a;
+}
+
+html[dir='rtl'] body {
+    font-family: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+}
